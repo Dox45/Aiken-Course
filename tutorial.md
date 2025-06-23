@@ -2,7 +2,7 @@
 ## Below is the installation guide for Aiken to get you started
 
 
-Welcome to the Aiken installation guide! This tutorial will walk you through the steps to set up Aiken, a powerful tool for your development needs. Follow the instructions below to get started. By any chance, if you're confused about anything. Refer to the official installation guide at https://aiken-lang.org/installation-instructions
+Welcome to the Aiken installation guide! This tutorial will walk you through the steps to set up Aiken, a powerful tool for your development needs. Follow the instructions below to get started. By any chance, if you're confused about anything. Refer to the official installation guide at [Aiken-Lang](https://aiken-lang.org/installation-instructions)
 
 ## Prerequisites
 
