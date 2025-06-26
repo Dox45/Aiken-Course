@@ -228,7 +228,7 @@ Parameters define the inputs a function accepts. Here’s how they work in Aiken
 #### Example: No Parameters
 
 ```rust 
-fn greet() -> String { "Hello, Aiken!" }
+fn greet() -> ByteArray { "Hello, Aiken!" }
 ```
 
 Calling it:
