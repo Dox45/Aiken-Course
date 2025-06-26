@@ -111,9 +111,7 @@ If you check in the placeholder folder of the generated aikenapp, you'd see a mo
 Just like any other language, aiken supports various data types. The following are a list of data types supported by aiken.
 
 -**Primitive Types** :  Int, Bool, ByteArray(String), Uint
-
 -**Tuples** : (Int, Bool)
-
 -**Custom Types** : (aka Algebraic Data Types (ADT))
 
 To assign/bind  a data type in aiken, we use the `let` keyword. 
@@ -228,7 +226,7 @@ Parameters define the inputs a function accepts. Here’s how they work in Aiken
 #### Example: No Parameters
 
 ```rust 
-fn greet() -> ByteArray { "Hello, Aiken!" }
+fn greet() -> String { "Hello, Aiken!" }
 ```
 
 Calling it:
@@ -459,3 +457,88 @@ Compiling ace/aikenapp 0.0.0 (.)
    Collecting all tests scenarios across all modules
 ```
  That's good. You've probably gotten a hang of a few things by now, if not take time to digest all of these. Let us proceed.
+
+### Higher Order Functions
+Aiken supports higher-order functions, meaning functions can take other functions as parameters or return functions. 
+```rust
+fn apply_twice(f: fn(Int) -> Int, x: Int) -> Int {
+  f(f(x))
+}
+fn double(x: Int) -> Int {
+  x * 2
+}
+
+fn return_result() {
+  let result = apply_twice(double, 5)
+  trace(result)
+}
+ // result is 20 (double(double(5)) = double(10) = 20)
+```
+-   apply_twice takes a function f (which maps Int to Int) and applies it twice to its inputs. 
+- Note that the expressions inside the function bodies don't end with a semi-colon. This is something to note as it will give an error if included.
+
+```markdown
+Compiling ace/aikenapp 0.0.0 (.)
+        Error aiken::parser
+
+  × While parsing files...
+  ╰─▶ I found an unexpected token '";"'.
+      
+    ╭─[./validators/placeholder.ak:15:38]
+ 13 │ 
+ 14 │ fn return_result() {
+ 15 │   let result = apply_twice(double, 5);
+    ·                                      ┬
+    ·                                      ╰── 
+ 16 │   trace(result)
+ 17 │ }
+    ╰────
+  help: Try removing it!
+
+      Summary 1 error, 0 warnings
+```
+#### Returning a function 
+Another feature that comes with Aiken's functional nature is the composablity of functions. A function can compound and return accumulated inputs.
+```rust
+fn adder(n: Int) -> fn(Int) -> Int {
+  fn(x: Int) -> Int {
+    x + n
+  }
+}
+
+fn return_result() {
+  let add_five = adder(5)
+  let result = add_five(3) // this will return 8
+  trace(result)
+}
+```
+### Anonymous Functions (Lambdas)
+
+Aiken supports anonymous functions (lambdas) for concise, inline function definitions. The syntax is:
+```markdown
+fn(parameter) -> ReturnType { expression }
+```
+example
+```rust
+let  double = fn(x: Int) -> Int  { x * 2 }
+
+let result = double(5) // result is 10
+
+```
+You'd usually implement it inside a function like this.
+```rust
+fn return_result() {
+  let double = fn(x: Int) -> Int { x * 2 }
+  let result = double(5) // result is 10
+  trace(result)
+}
+```
+This also means that the lambda functions are often used with higher-order functions
+```rust
+let result = apply_twice(fn(x: Int) -> Int { x * 2 }, 5) // result is 20
+```
+#### A brief on Trace
+To be honest, the concept of a trace is kind of hard to grasp. There are also a number of ways to define traces. But first of what is a trace? 
+There is no single definition of a trace. It's a lot of things. But most especially it is somewhat a debugging tool like javascripts console.log except that it doesn't really log anything you see unless during tests
+Traces are also used for fast prototyping in the sense of using them as return statements for functions and also as placeholder values. They are your greatest ally when coding aiken. Although we won't be talking much about it right now, we will dwell on it when we talk about testing.
+
