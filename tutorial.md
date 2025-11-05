@@ -75,3 +75,5 @@ Aiken ships with:
     -   Vim/Neovim: `editor-integration-nvim`
         
     -   Zed, Emacs: official plugins [developers.cardano.org+12aiken-lang.org+12emurgo.io+12](https://aiken-lang.org/installation-instructions?utm_source=chatgpt.com)[aiken-lang.org+6github.com+6aiken-lang.org+6](https://github.com/aiken-lang?utm_source=chatgpt.com)[meshjs.dev](https://meshjs.dev/guides/aiken?utm_source=chatgpt.com)[committees.docs.intersectmbo.org](https://committees.docs.intersectmbo.org/intersect-open-source-committee/guides-and-educational-resources/onboarding-guide-for-aiken-learners?utm_source=chatgpt.com)
+
+[previous](index.md) [Next](tutorial.md)
