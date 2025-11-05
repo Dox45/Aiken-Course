@@ -542,3 +542,4 @@ To be honest, the concept of a trace is kind of hard to grasp. There are also a 
 There is no single definition of a trace. It's a lot of things. But most especially it is somewhat a debugging tool like javascripts console.log except that it doesn't really log anything you see unless during tests
 Traces are also used for fast prototyping in the sense of using them as return statements for functions and also as placeholder values. They are your greatest ally when coding aiken. Although we won't be talking much about it right now, we will dwell on it when we talk about testing.
 
+[previous](tutorial.md) [next](modules.md)
