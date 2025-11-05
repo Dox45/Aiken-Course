@@ -331,3 +331,4 @@ pub fn count_outputs(tx: transaction.Transaction) -> Int {
 ```
 
 The standard library evolves alongside the Aiken compiler—you can check the latest modules and functions on the [official stdlib GitHub page](https://github.com/aiken-lang/stdlib).
+[previous](basics.md)
